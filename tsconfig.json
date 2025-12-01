@@ -25,24 +25,3 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
-```
-
-4. **Commit**
-
-✅ **Fichier 5 créé !**
-
----
-
-#### **📄 Fichier 6 : .gitignore**
-
-1. **"Add file"** → **"Create new file"**
-2. Nom : `.gitignore`
-3. Contenu :
-```
-node_modules
-.next
-out
-.DS_Store
-*.log
-.env*.local
-.vercel
