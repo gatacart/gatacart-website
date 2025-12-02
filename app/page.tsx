@@ -589,7 +589,7 @@ const GataCartWebsite = () => {
             </div>
             
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              GataCart :<span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Vos achats dans les règles de l'art.</span> Et le budget sous contrôle.
+              GataCart :<span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Vos achats dans les règles de l'art.</span> 
             </h2>
             
             <p className="text-xl sm:text-2xl text-gray-600 mb-4">
