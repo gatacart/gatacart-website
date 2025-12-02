@@ -332,9 +332,8 @@ const GataCartWebsite = () => {
                 <section>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptation des Conditions</h3>
                   <p className="leading-relaxed">
-                    En téléchargeant, installant ou utilisant l'application GataCart, vous acceptez d'être lié par 
-                    ces conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser 
-                    l'application.
+                    Bienvenue sur GataCart. Nous vous informons qu'en accédant à nos services, 
+                    vous consentez à nos conditions d'utilisation. Nous vous invitons à les lire attentivement.
                   </p>
                 </section>
 
