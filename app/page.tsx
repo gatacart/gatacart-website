@@ -3,6 +3,23 @@
 import React, { useState } from 'react';
 import { TrendingUp, BarChart3, Settings, List, Receipt, PieChart, Menu, X, ChevronRight, Check, Shield, FileText, Cookie, ShoppingCart } from 'lucide-react';
 
+interface Feature {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  description: string;
+  highlight: string;
+  gradient: string;
+}
+
+interface AppMenu {
+  icon: React.ReactNode;
+  name: string;
+  role: string;
+  description: string;
+  color: string;
+}
+
 const GataCartWebsite = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(true);
@@ -10,7 +27,7 @@ const GataCartWebsite = () => {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
 
-  const features = [
+  const features: Feature[] = [
     {
       icon: <List className="w-8 h-8" />,
       title: "Faites vos courses dans l'ordre parfait",
@@ -37,7 +54,7 @@ const GataCartWebsite = () => {
     }
   ];
 
-  const appMenus = [
+  const appMenus: AppMenu[] = [
     {
       icon: <List className="w-6 h-6" />,
       name: "Listes",
@@ -68,7 +85,7 @@ const GataCartWebsite = () => {
     }
   ];
 
-  const benefits = [
+  const benefits: string[] = [
     "Optimisation du parcours en magasin",
     "Double suivi budgétaire en temps réel",
     "Prix moyen historique intelligent",
@@ -105,8 +122,8 @@ const GataCartWebsite = () => {
     setShowTerms(false);
   };
 
-  const getColorClasses = (color) => {
-    const colors = {
+  const getColorClasses = (color: string) => {
+    const colors: Record<string, { bg: string; text: string; icon: string }> = {
       blue: { bg: 'bg-blue-100', text: 'text-blue-600', icon: 'bg-blue-600' },
       orange: { bg: 'bg-orange-100', text: 'text-orange-600', icon: 'bg-orange-600' },
       emerald: { bg: 'bg-emerald-100', text: 'text-emerald-600', icon: 'bg-emerald-600' },
@@ -366,7 +383,7 @@ const GataCartWebsite = () => {
                 <section>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">5. Mode Invité</h3>
                   <div className="bg-amber-50 border-l-4 border-amber-600 p-4 rounded">
-                    <p class="leading-relaxed">
+                    <p className="leading-relaxed">
                       Le Mode Invité permet d'utiliser GataCart sans créer de compte. Les données sont stockées 
                       localement sur votre appareil. <strong>GataCart ne peut garantir la conservation de ces données</strong> 
                       en cas de désinstallation, changement d'appareil ou problème technique.
