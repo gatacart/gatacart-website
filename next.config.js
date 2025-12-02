@@ -4,6 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [],
+    formats: ['image/webp', 'image/avif'],
   },
 }
 
