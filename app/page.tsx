@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { TrendingUp, BarChart3, Settings, List, Receipt, PieChart, Menu, X, ChevronRight, Check, Shield, FileText, Cookie, ShoppingCart } from 'lucide-react';
 
