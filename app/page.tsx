@@ -90,7 +90,7 @@ const GataCartWebsite = () => {
     "Mode invité disponible",
   ];
 
-  const scrollToSection = (section) => {
+  const scrollToSection = (section: string) => {
     setActiveSection(section);
     setMobileMenuOpen(false);
     const element = document.getElementById(section);
