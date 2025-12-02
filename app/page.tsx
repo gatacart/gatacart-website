@@ -589,7 +589,7 @@ const GataCartWebsite = () => {
             </div>
             
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Le <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Grenier Organisé</span> de vos Courses
+              GataCart :<span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Vos achats dans les règles de l'art.</span> Et le budget sous contrôle.
             </h2>
             
             <p className="text-xl sm:text-2xl text-gray-600 mb-4">
@@ -706,7 +706,7 @@ const GataCartWebsite = () => {
       <section className="py-16 px-4 bg-gradient-to-r from-blue-600 via-blue-500 to-orange-500">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Prêt à organiser votre grenier de courses ?
+            Prêt à organiser vos courses ?
           </h3>
           <p className="text-xl text-blue-100 mb-8">
             Rejoignez les utilisateurs qui ont déjà transformé leur façon de faire leurs courses
@@ -792,7 +792,7 @@ const GataCartWebsite = () => {
                 <span className="font-bold text-lg">GataCart</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Le Grenier Organisé de vos courses. Planifiez, analysez, maîtrisez.
+                GataCart : Vos achats dans les règles de l'art. Et le budget sous contrôle. Planifiez, analysez, maîtrisez.
               </p>
             </div>
 
