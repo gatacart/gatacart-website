@@ -92,7 +92,6 @@ export default function Mockups() {
     setIsAutoPlaying(false);
   };
 
-  // Auto-play pour les screenshots
   useEffect(() => {
     if (!isAutoPlaying) return;
     
@@ -100,24 +99,12 @@ export default function Mockups() {
       if (currentScreenshot < totalScreenshots - 1) {
         nextScreenshot();
       } else {
-        // Passer au menu suivant
         nextMenu();
       }
     }, 4000);
 
     return () => clearInterval(interval);
   }, [currentScreenshot, currentMenu, isAutoPlaying, totalScreenshots]);
-
-  const renderPlaceholder = (caption: string) => (
-    <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-100 via-white to-orange-100">
-      <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-orange-500 rounded-2xl flex items-center justify-center mb-4">
-        <Smartphone className="w-12 h-12 text-white" />
-      </div>
-      <p className="text-gray-600 text-center font-medium mb-2">{currentMenuData.title}</p>
-      <p className="text-gray-500 text-sm text-center">{caption}</p>
-      <p className="text-gray-400 text-xs text-center mt-2">Screenshot à venir</p>
-    </div>
-  );
 
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -138,75 +125,68 @@ export default function Mockups() {
         <div className="relative">
           {/* Main Display */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left: Mockup Image */}
+            
+            {/* Left: Mockup Image (MODIFIÉ ICI) */}
             <div className="relative order-2 md:order-1">
               <div className="relative mx-auto max-w-sm">
-                {/* Phone Frame */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
-                  <div className="bg-white rounded-[2.5rem] overflow-hidden aspect-[9/19] relative">
-                    <img 
-                      src={currentMenuData.screenshots[currentScreenshot].imagePath}
-                      alt={currentMenuData.screenshots[currentScreenshot].caption}
-                      className="w-full h-full object-cover transition-opacity duration-500"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent && parent.querySelector('.placeholder') === null) {
-                          const placeholder = document.createElement('div');
-                          placeholder.className = 'placeholder';
-                          parent.appendChild(placeholder);
-                          const root = document.createElement('div');
-                          placeholder.appendChild(root);
-                          root.outerHTML = renderPlaceholder(currentMenuData.screenshots[currentScreenshot].caption).props.children;
-                        }
-                      }}
-                    />
+                
+                {/* 
+                   Changements effectués :
+                   1. Suppression du div "Phone Frame" (bordures noires CSS)
+                   2. Suppression du "Notch" (l'encoche noire CSS)
+                   3. Utilisation de 'drop-shadow' au lieu de 'shadow' pour que l'ombre suive la forme de votre PNG
+                   4. 'object-contain' pour s'assurer que votre image de téléphone entière est visible
+                */}
+                <div className="relative w-full h-auto transition-transform duration-500 hover:scale-[1.02]">
+                  <img 
+                    src={currentMenuData.screenshots[currentScreenshot].imagePath}
+                    alt={currentMenuData.screenshots[currentScreenshot].caption}
+                    className="w-full h-auto object-contain drop-shadow-2xl mx-auto"
+                    style={{ maxHeight: '600px' }} // Limite la hauteur sur les grands écrans
+                  />
+                  
+                  {/* Fallback si l'image ne charge pas (texte seulement) */}
+                  <div className="absolute inset-0 -z-10 flex items-center justify-center bg-gray-100 rounded-[3rem]">
+                    <span className="text-gray-400">Chargement...</span>
                   </div>
-                  {/* Notch */}
-                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-full z-10"></div>
                 </div>
 
-                {/* Screenshot Navigation Arrows (si plus d'un screenshot) */}
+                {/* Screenshot Navigation Arrows */}
                 {totalScreenshots > 1 && (
                   <>
                     <button
                       onClick={prevScreenshot}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all z-20"
-                      aria-label="Screenshot précédent"
+                      className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white/80 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all z-20"
                     >
                       <ChevronLeft className="w-5 h-5 text-gray-800" />
                     </button>
                     
                     <button
                       onClick={nextScreenshot}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all z-20"
-                      aria-label="Screenshot suivant"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white/80 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-white transition-all z-20"
                     >
                       <ChevronRight className="w-5 h-5 text-gray-800" />
                     </button>
 
-                    {/* Screenshot Counter */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-medium z-20">
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-medium z-20 shadow-lg">
                       {currentScreenshot + 1} / {totalScreenshots}
                     </div>
                   </>
                 )}
 
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-orange-500 rounded-full opacity-20 blur-2xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500 rounded-full opacity-20 blur-2xl"></div>
+                {/* Decorative Elements (Blobs en arrière plan) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute top-1/4 right-0 w-24 h-24 bg-orange-400/20 rounded-full blur-2xl -z-10"></div>
               </div>
 
-              {/* Screenshot Caption */}
-              <div className="text-center mt-4">
-                <p className="text-sm text-gray-600 font-medium">
+              <div className="text-center mt-6">
+                <p className="text-sm text-gray-600 font-medium bg-white/50 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
                   {currentMenuData.screenshots[currentScreenshot].caption}
                 </p>
               </div>
             </div>
 
-            {/* Right: Content */}
+            {/* Right: Content (Reste inchangé) */}
             <div className="order-1 md:order-2 space-y-6">
               <div className="inline-block px-3 py-1 bg-gradient-to-r from-blue-100 to-orange-100 text-blue-800 rounded-full text-sm font-semibold">
                 {currentMenuData.category}
@@ -220,7 +200,6 @@ export default function Mockups() {
                 {currentMenuData.description}
               </p>
 
-              {/* Features List */}
               <div className="space-y-3">
                 {currentMenuData.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
@@ -234,7 +213,6 @@ export default function Mockups() {
                 ))}
               </div>
 
-              {/* Menu Navigation Dots */}
               <div className="flex items-center gap-3 pt-4">
                 {menus.map((_, index) => (
                   <button
@@ -245,12 +223,10 @@ export default function Mockups() {
                         ? 'w-12 bg-gradient-to-r from-blue-600 to-orange-500' 
                         : 'w-2 bg-gray-300 hover:bg-gray-400'
                     }`}
-                    aria-label={`Aller au menu ${index + 1}`}
                   />
                 ))}
               </div>
 
-              {/* Screenshot Dots (pour le menu actuel) */}
               {totalScreenshots > 1 && (
                 <div className="flex items-center gap-2">
                   {currentMenuData.screenshots.map((_, index) => (
@@ -262,7 +238,6 @@ export default function Mockups() {
                           ? 'bg-orange-500 scale-125' 
                           : 'bg-gray-300 hover:bg-gray-400'
                       }`}
-                      aria-label={`Screenshot ${index + 1}`}
                     />
                   ))}
                 </div>
@@ -270,26 +245,24 @@ export default function Mockups() {
             </div>
           </div>
 
-          {/* Menu Navigation Buttons */}
+          {/* Navigation Buttons Global */}
           <button
             onClick={prevMenu}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all hover:scale-110 z-10"
-            aria-label="Menu précédent"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110 z-10"
           >
             <ChevronLeft className="w-6 h-6 text-gray-800" />
           </button>
           
           <button
             onClick={nextMenu}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all hover:scale-110 z-10"
-            aria-label="Menu suivant"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110 z-10"
           >
             <ChevronRight className="w-6 h-6 text-gray-800" />
           </button>
         </div>
 
-        {/* Bottom Grid - Menu Thumbnails */}
-        <div className="grid grid-cols-4 gap-4 mt-12">
+        {/* Bottom Thumbnails */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
           {menus.map((menu, index) => (
             <button
               key={index}
