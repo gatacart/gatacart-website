@@ -126,28 +126,35 @@ export default function Mockups() {
           {/* Main Display */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             
-            {/* Left: Mockup Image (MODIFIÉ ICI) */}
+            {/* Left: Mockup Image SLIDER */}
             <div className="relative order-2 md:order-1">
               <div className="relative mx-auto max-w-sm">
                 
                 {/* 
-                   Changements effectués :
-                   1. Suppression du div "Phone Frame" (bordures noires CSS)
-                   2. Suppression du "Notch" (l'encoche noire CSS)
-                   3. Utilisation de 'drop-shadow' au lieu de 'shadow' pour que l'ombre suive la forme de votre PNG
-                   4. 'object-contain' pour s'assurer que votre image de téléphone entière est visible
-                */}
-                <div className="relative w-full h-auto transition-transform duration-500 hover:scale-[1.02]">
-                  <img 
-                    src={currentMenuData.screenshots[currentScreenshot].imagePath}
-                    alt={currentMenuData.screenshots[currentScreenshot].caption}
-                    className="w-full h-auto object-contain drop-shadow-2xl mx-auto"
-                    style={{ maxHeight: '600px' }} // Limite la hauteur sur les grands écrans
-                  />
-                  
-                  {/* Fallback si l'image ne charge pas (texte seulement) */}
-                  <div className="absolute inset-0 -z-10 flex items-center justify-center bg-gray-100 rounded-[3rem]">
-                    <span className="text-gray-400">Chargement...</span>
+                    Container principal du slider
+                    overflow-hidden: Cache les images qui sont à gauche ou à droite
+                    py-8 px-4: Donne de l'espace pour que l'ombre portée (drop-shadow) ne soit pas coupée
+                 */}
+                <div className="overflow-hidden py-8 px-4">
+                  {/* 
+                      La "Bande" d'images (Track)
+                      Elle contient toutes les images alignées horizontalement.
+                      On la déplace avec translateX selon l'index actuel.
+                   */}
+                  <div 
+                    className="flex transition-transform duration-500 ease-out"
+                    style={{ transform: `translateX(-${currentScreenshot * 100}%)` }}
+                  >
+                    {currentMenuData.screenshots.map((screen, index) => (
+                      <div key={`${currentMenu}-${index}`} className="min-w-full flex justify-center">
+                        <img 
+                          src={screen.imagePath}
+                          alt={screen.caption}
+                          className="w-full h-auto object-contain drop-shadow-2xl"
+                          style={{ maxHeight: '600px' }}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -174,19 +181,23 @@ export default function Mockups() {
                   </>
                 )}
 
-                {/* Decorative Elements (Blobs en arrière plan) */}
+                {/* Decorative Elements */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
                 <div className="absolute top-1/4 right-0 w-24 h-24 bg-orange-400/20 rounded-full blur-2xl -z-10"></div>
               </div>
 
-              <div className="text-center mt-6">
-                <p className="text-sm text-gray-600 font-medium bg-white/50 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                  {currentMenuData.screenshots[currentScreenshot].caption}
-                </p>
+              {/* Caption changeante (avec fade effect pour éviter le saut brutal) */}
+              <div className="text-center mt-2 relative h-8">
+                 <p 
+                   key={currentScreenshot} 
+                   className="text-sm text-gray-600 font-medium bg-white/50 inline-block px-4 py-1 rounded-full backdrop-blur-sm animate-fade-in"
+                 >
+                    {currentMenuData.screenshots[currentScreenshot].caption}
+                 </p>
               </div>
             </div>
 
-            {/* Right: Content (Reste inchangé) */}
+            {/* Right: Content */}
             <div className="order-1 md:order-2 space-y-6">
               <div className="inline-block px-3 py-1 bg-gradient-to-r from-blue-100 to-orange-100 text-blue-800 rounded-full text-sm font-semibold">
                 {currentMenuData.category}
@@ -213,6 +224,7 @@ export default function Mockups() {
                 ))}
               </div>
 
+              {/* Menu Dots */}
               <div className="flex items-center gap-3 pt-4">
                 {menus.map((_, index) => (
                   <button
@@ -227,6 +239,7 @@ export default function Mockups() {
                 ))}
               </div>
 
+              {/* Screenshot Dots */}
               {totalScreenshots > 1 && (
                 <div className="flex items-center gap-2">
                   {currentMenuData.screenshots.map((_, index) => (
@@ -281,6 +294,17 @@ export default function Mockups() {
           ))}
         </div>
       </div>
+      
+      {/* Petit ajout CSS pour l'animation du texte si pas présent dans votre tailwind config */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 }
