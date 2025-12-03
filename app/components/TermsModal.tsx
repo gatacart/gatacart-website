@@ -29,9 +29,8 @@ export default function TermsModal({ show, onClose }: TermsModalProps) {
             <section>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptation des Conditions</h3>
               <p className="leading-relaxed">
-                En téléchargeant, installant ou utilisant l'application GataCart, vous acceptez d'être lié par 
-                ces conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser 
-                l'application.
+               En utilisant GataCart, vous acceptez nos Conditions d’Utilisation. Nous vous invitons à en prendre 
+                connaissance pour une collaboration éclairée et agréable.
               </p>
             </section>
 
