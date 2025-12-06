@@ -13,6 +13,8 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
     { icon: <Twitter className="w-5 h-5" />, url: "https://twitter.com/gatacart", label: "Twitter", color: "hover:text-sky-400" },
     { icon: <Instagram className="w-5 h-5" />, url: "https://instagram.com/gatacart", label: "Instagram", color: "hover:text-pink-500" },
     { icon: <Linkedin className="w-5 h-5" />, url: "https://linkedin.com/company/gatacart", label: "LinkedIn", color: "hover:text-blue-600" },
+    { icon: <Youtube className="w-5 h-5" />, url: "https://youtube.com/@gatacart", label: "YouTube", color: "hover:text-red-500" },
+    { icon: <Mail className="w-5 h-5" />, url: "mailto:contact@gatacart.com", label: "Email", color: "hover:text-orange-500" }
   ];
 
   return (
@@ -31,7 +33,7 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
               <span className="font-bold text-lg">GataCart</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-               Planifiez, analysez, maîtrisez!
+              Le Grenier Organisé de vos courses. Planifiez, analysez, maîtrisez.
             </p>
             
             {/* Social Links */}
@@ -139,64 +141,6 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    </footer>
-  );
-}              >
-                Accueil
-              </button>
-              <button 
-                onClick={() => scrollToSection('features')} 
-                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
-              >
-                Fonctionnalités
-              </button>
-              <button 
-                onClick={() => scrollToSection('how-it-works')} 
-                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
-              >
-                Comment ça marche
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <h5 className="font-bold mb-4 text-blue-400">Légal</h5>
-            <div className="flex flex-col gap-2">
-              <button 
-                onClick={openPrivacyPolicy}
-                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
-              >
-                Politique de Confidentialité
-              </button>
-              <button 
-                onClick={openTerms}
-                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
-              >
-                Conditions d'Utilisation
-              </button>
-              <button 
-                onClick={() => scrollToSection('legal')} 
-                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
-              >
-                Gestion des Cookies
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <h5 className="font-bold mb-4 text-emerald-400">Télécharger</h5>
-            <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-orange-500 hover:shadow-lg rounded-lg transition-all flex items-center justify-center gap-2">
-              <ShoppingCart className="w-5 h-5" />
-              <span>Google Play</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; 2024 GataCart. Tous droits réservés.</p>
-          <p className="mt-2">Conçu avec ❤️ pour simplifier vos courses quotidiennes</p>
         </div>
       </div>
     </footer>
