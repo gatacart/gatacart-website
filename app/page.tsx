@@ -79,47 +79,4 @@ export default function GataCartWebsite() {
       />
     </div>
   );
-}    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const openTerms = () => {
-    setShowTerms(true);
-    setShowPrivacyPolicy(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const closeModal = () => {
-    setShowPrivacyPolicy(false);
-    setShowTerms(false);
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
-      <PrivacyModal show={showPrivacyPolicy} onClose={closeModal} />
-      <TermsModal show={showTerms} onClose={closeModal} />
-      <CookieBanner show={showCookieBanner} onClose={() => setShowCookieBanner(false)} />
-      
-      <Header 
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        scrollToSection={scrollToSection}
-      />
-      
-      <Hero />
-      <Mockups />
-      <Features />
-      <AppMenus />
-      <CTA />
-      <Legal 
-        openPrivacyPolicy={openPrivacyPolicy}
-        openTerms={openTerms}
-      />
-      
-      <Footer 
-        scrollToSection={scrollToSection}
-        openPrivacyPolicy={openPrivacyPolicy}
-        openTerms={openTerms}
-      />
-    </div>
-  );
 }
