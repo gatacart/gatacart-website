@@ -12,7 +12,11 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, scrollToSect
     <header className="bg-white shadow-sm sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center gap-3">
+          <button 
+            onClick={() => scrollToSection('home')}
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+            aria-label="Retour à l'accueil"
+          >
             <div className="relative w-12 h-12 flex-shrink-0">
               <img 
                 src="/logo.png" 
@@ -26,7 +30,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, scrollToSect
               </h1>
               <p className="text-xs text-gray-600">Le Grenier Organisé</p>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
