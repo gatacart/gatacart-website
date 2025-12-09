@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -9,7 +7,7 @@ interface HeaderProps {
   scrollToSection: (section: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen, scrollToSection }) => {
+export default function Header({ mobileMenuOpen, setMobileMenuOpen, scrollToSection }: HeaderProps) {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,19 +21,32 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen, scro
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">GataCart</h1>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
+                GataCart
+              </h1>
               <p className="text-xs text-gray-600">Le Grenier Organisé</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors">Accueil</button>
-            <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-orange-600 transition-colors">Fonctionnalités</button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-emerald-600 transition-colors">Comment ça marche</button>
-            <button onClick={() => scrollToSection('legal')} className="text-gray-700 hover:text-amber-600 transition-colors">Légal</button>
+            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors">
+              Accueil
+            </button>
+            <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-orange-600 transition-colors">
+              Fonctionnalités
+            </button>
+            <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-emerald-600 transition-colors">
+              Comment ça marche
+            </button>
+            <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-purple-600 transition-colors">
+              FAQ
+            </button>
+            <button onClick={() => scrollToSection('legal')} className="text-gray-700 hover:text-amber-600 transition-colors">
+              Légal
+            </button>
             <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all font-medium">
-              Télécharger
+              Bientôt disponible
             </button>
           </nav>
 
@@ -51,18 +62,27 @@ const Header: React.FC<HeaderProps> = ({ mobileMenuOpen, setMobileMenuOpen, scro
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 flex flex-col gap-3">
-            <button onClick={() => scrollToSection('home')} className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors">Accueil</button>
-            <button onClick={() => scrollToSection('features')} className="text-left py-2 text-gray-700 hover:text-orange-600 transition-colors">Fonctionnalités</button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-left py-2 text-gray-700 hover:text-emerald-600 transition-colors">Comment ça marche</button>
-            <button onClick={() => scrollToSection('legal')} className="text-left py-2 text-gray-700 hover:text-amber-600 transition-colors">Légal</button>
+            <button onClick={() => scrollToSection('home')} className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors">
+              Accueil
+            </button>
+            <button onClick={() => scrollToSection('features')} className="text-left py-2 text-gray-700 hover:text-orange-600 transition-colors">
+              Fonctionnalités
+            </button>
+            <button onClick={() => scrollToSection('how-it-works')} className="text-left py-2 text-gray-700 hover:text-emerald-600 transition-colors">
+              Comment ça marche
+            </button>
+            <button onClick={() => scrollToSection('faq')} className="text-left py-2 text-gray-700 hover:text-purple-600 transition-colors">
+              FAQ
+            </button>
+            <button onClick={() => scrollToSection('legal')} className="text-left py-2 text-gray-700 hover:text-amber-600 transition-colors">
+              Légal
+            </button>
             <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all font-medium">
-              Télécharger
+              Bientôt disponible
             </button>
           </nav>
         )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}
