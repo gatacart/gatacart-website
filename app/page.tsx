@@ -7,6 +7,7 @@ import Mockups from './components/Mockups';
 import Features from './components/Features';
 import AppMenus from './components/AppMenus';
 import CTA from './components/CTA';
+import FAQ from './components/FAQ';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
@@ -67,6 +68,7 @@ export default function GataCartWebsite() {
       <Features />
       <AppMenus />
       <CTA />
+      <FAQ />
       <Legal 
         openPrivacyPolicy={openPrivacyPolicy}
         openTerms={openTerms}
