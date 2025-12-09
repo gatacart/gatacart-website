@@ -22,7 +22,11 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity cursor-pointer"
+              aria-label="Retour à l'accueil"
+            >
               <div className="relative w-10 h-10">
                 <img 
                   src="/logo.png" 
@@ -31,7 +35,7 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
                 />
               </div>
               <span className="font-bold text-lg">GataCart</span>
-            </div>
+            </button>
             <p className="text-gray-400 text-sm mb-4">
               Le Grenier Organisé de vos courses. Planifiez, analysez, maîtrisez.
             </p>
@@ -145,4 +149,4 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
       </div>
     </footer>
   );
-}
+      }
