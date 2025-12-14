@@ -30,7 +30,7 @@ export default function SocialBar() {
     },
     { 
       icon: <Instagram className="w-5 h-5" />, 
-      url: "https://instagram.com/gatacart", 
+      url: "https://instagram.com/gatacart_app", 
       label: "Instagram",
       color: "bg-gradient-to-br from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600" 
     },
