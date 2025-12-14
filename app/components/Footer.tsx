@@ -76,10 +76,16 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
                 Fonctionnalités
               </button>
               <button 
-                onClick={() => scrollToSection('how-it-works')} 
+                onClick={() => scrollToSection('about')} 
                 className="text-gray-400 hover:text-white text-sm text-left transition-colors"
               >
-                Comment ça marche
+                À propos
+              </button>
+              <button 
+                onClick={() => scrollToSection('faq')} 
+                className="text-gray-400 hover:text-white text-sm text-left transition-colors"
+              >
+                FAQ
               </button>
             </div>
           </div>
@@ -149,4 +155,4 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
       </div>
     </footer>
   );
-      }
+}
