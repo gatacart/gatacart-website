@@ -11,7 +11,7 @@ export default function Footer({ scrollToSection, openPrivacyPolicy, openTerms }
   const socialLinks = [
     { icon: <Facebook className="w-5 h-5" />, url: "https://facebook.com/gatacart", label: "Facebook", color: "hover:text-blue-500" },
     { icon: <Twitter className="w-5 h-5" />, url: "https://twitter.com/gatacart", label: "Twitter", color: "hover:text-sky-400" },
-    { icon: <Instagram className="w-5 h-5" />, url: "https://instagram.com/gatacart", label: "Instagram", color: "hover:text-pink-500" },
+    { icon: <Instagram className="w-5 h-5" />, url: "https://instagram.com/gatacart_app", label: "Instagram", color: "hover:text-pink-500" },
     { icon: <Linkedin className="w-5 h-5" />, url: "https://linkedin.com/company/gatacart", label: "LinkedIn", color: "hover:text-blue-600" },
     { icon: <Youtube className="w-5 h-5" />, url: "https://youtube.com/@gatacart", label: "YouTube", color: "hover:text-red-500" },
     { icon: <Mail className="w-5 h-5" />, url: "mailto:contact@gatacart.com", label: "Email", color: "hover:text-orange-500" }
