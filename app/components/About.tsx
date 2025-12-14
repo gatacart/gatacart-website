@@ -35,7 +35,8 @@ export default function About() {
     { icon: <Instagram className="w-5 h-5" />, label: "@gatacart_app", url: "https://instagram.com/gatacart_app" },
     { icon: <Linkedin className="w-5 h-5" />, label: "gatacart", url: "https://linkedin.com/company/gatacart" },
     { icon: <Facebook className="w-5 h-5" />, label: "gatacart", url: "https://facebook.com/gatacart" },
-    { icon: <Twitter className="w-5 h-5" />, label: "@gatacart", url: "https://twitter.com/gatacart" }
+    { icon: <Twitter className="w-5 h-5" />, label: "@gatacart", url: "https://twitter.com/gatacart" },
+    { icon: <Youtube className="w-5 h-5" />, label: "gatacart", url: "https://youtube.com/@gatacart" }
   ];
 
   return (
