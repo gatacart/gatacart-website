@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Heart, Lightbulb, Shield, Users, TrendingUp, Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Target, Heart, Lightbulb, Shield, Users, TrendingUp, Facebook, Twitter, Instagram, Linkedin, Youtube, Mail } from 'lucide-react';
 
 export default function About() {
   const values = [
