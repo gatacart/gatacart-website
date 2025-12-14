@@ -40,14 +40,11 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, scrollToSect
             <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-orange-600 transition-colors">
               Fonctionnalités
             </button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Comment ça marche
+            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-purple-600 transition-colors">
+              À propos
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-emerald-600 transition-colors">
               FAQ
-            </button>
-            <button onClick={() => scrollToSection('legal')} className="text-gray-700 hover:text-amber-600 transition-colors">
-              Légal
             </button>
             <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all font-medium">
               Bientôt disponible
@@ -72,14 +69,11 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, scrollToSect
             <button onClick={() => scrollToSection('features')} className="text-left py-2 text-gray-700 hover:text-orange-600 transition-colors">
               Fonctionnalités
             </button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-left py-2 text-gray-700 hover:text-emerald-600 transition-colors">
-              Comment ça marche
+            <button onClick={() => scrollToSection('about')} className="text-left py-2 text-gray-700 hover:text-purple-600 transition-colors">
+              À propos
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-left py-2 text-gray-700 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-left py-2 text-gray-700 hover:text-emerald-600 transition-colors">
               FAQ
-            </button>
-            <button onClick={() => scrollToSection('legal')} className="text-left py-2 text-gray-700 hover:text-amber-600 transition-colors">
-              Légal
             </button>
             <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-lg hover:shadow-lg transition-all font-medium">
               Bientôt disponible
