@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Mockups from './components/Mockups';
 import Features from './components/Features';
 import AppMenus from './components/AppMenus';
+import About from './components/About';
 import CTA from './components/CTA';
 import FAQ from './components/FAQ';
 import Legal from './components/Legal';
@@ -67,6 +68,7 @@ export default function GataCartWebsite() {
       <Mockups />
       <Features />
       <AppMenus />
+      <About />
       <CTA />
       <FAQ />
       <Legal 
